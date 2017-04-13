@@ -11,8 +11,8 @@ $("#texte").keyup(function() {
 })
 
 var contenu = {"titre" : titre, "texte" : texte}
-$("#titre").val();
-$("#texte").val();
+$("#titre").val("");
+$("#texte").val("");
 blog.push(contenu);
 
 $.ajax({
