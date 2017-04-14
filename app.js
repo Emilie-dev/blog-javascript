@@ -1,4 +1,4 @@
-var blog = [];
+var contenu;
 
 
 
@@ -13,13 +13,12 @@ function afficher(data) {
 
 
 $("#envoyer").click(function(){
+	contenu = {
+		"titre" : $("#titre").val(),
+		"texte" : $("#texte").val(),
+	};
 	
-	var contenu = {
-			"titre" : $("#titre").val(),
-			"texte" : $("#texte").val(),
-		};
-	
-	blog.push(contenu);
+	 
 	sauvegarde();
 	$("#titre").val("");
 	$("#texte").val("");
@@ -35,7 +34,7 @@ function sauvegarde() {
 		data : {
 			task : "set",
 			key : "blogemilie",
-			value : JSON.stringify(blog)
+			value : JSON.stringify(contenu)
 		},
    
 	})
@@ -64,5 +63,7 @@ $.ajax({
 
 
 
+// j'affiche date et heure
+ var uneDate = new Date();
 
-
+ $("#date").html(uneDate);
