@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>blog-javascript</title>
+	<title>Admin-blog-javascript</title>
 	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
@@ -26,7 +26,7 @@
   		</div>
 	</nav>
 
-<!--titre-->
+<!--h1-->
 	<div class="container">
 		<div class="row">
 			<h1 class="text-danger">Blog-Javascript</h1>
@@ -34,23 +34,24 @@
 	</div>
 
 
-<!--textearea-->
+<!--titre + textearea-->
 	<div class="container">
 		<div class="row">
 			<label for="titre"></label>
 			<input id="titre" type="texte" name="titre">
-			<label for="text">description</label>
-			<textarea id="text" name="textarea" rows="10" cols="30" placeholder="Ajouter votre texte..."></textarea>
+			<label for="texte">description</label>
+			<textarea id="texte" name="textarea" rows="10" cols="30" placeholder="Ajouter votre texte..."></textarea>
 		</div>
 	</div>
 
 <!--bouton Enregistrer-->
 	<div class="container">
 		<div class="row">
-	 		<button type="button" class="btn btn-lg btn-danger">Enregistrer</button>
+	 		<button id="envoyer"type="button" class="btn btn-lg btn-danger">Envoyer</button>
 		 </div>
 	</div>	 
 	
+
 
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
