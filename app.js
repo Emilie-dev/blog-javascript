@@ -2,6 +2,8 @@ $(document).ready(function(){
 
 var contenu;
 
+
+// je convertis mon article de Markdown à HTML côté admin
 var converter = new showdown.Converter();
 
 function convertion () {
@@ -12,6 +14,7 @@ function convertion () {
 		var html = converter.makeHtml(text);
     	console.log(html);
     	$("#textehtml").val(html);
+
 	
 });
 	
@@ -19,29 +22,19 @@ function convertion () {
 
 convertion();
 
-// j'affiche les articles sur la page publique
-
-function afficher(data) {
-	console.log(data);
-	$("#public").html(data);	
-}
-
-
-
-
 
 // j'envoie au serveur
 
 $("#envoyer").click(function(){
 	contenu = {
-		"titre" : $("#titre").val(),
-		"texte" : $("#texte").val(),
+		//"titre" : $("#titre").val(),
+		"texte" : $("textehtml").val(),
 	};
-	
+
 	 
 	sauvegarde();
-	$("#titre").val("");
-	$("#texte").val("");
+	//$("#titre").val("");
+	$("#textehtml").val("");
 });
 
 
@@ -70,15 +63,28 @@ $.ajax({
 	}
 })
 .done(function(data) {
-//	alert("done");
+	alert("done");
 	afficher(data);
-})/*
+})
 .fail(function() {
 	alert("error");
 })
 .always(function() {
 	alert("complete");
-});*/
+});
+
+
+
+// j'affiche les articles sur la page publique
+
+function afficher(data) {
+	console.log(data);
+	$("#public").html(data);	
+}
+
+
+
+
 
 
 
