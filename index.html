@@ -38,24 +38,44 @@
 	<div class="container">
 		<div class="row">
 			<label for="titre"></label>
-			<input id="titre" type="texte" name="titre">
-			<label for="texte">description</label>
-			<textarea id="texte" name="textarea" rows="10" cols="30" placeholder="Ajouter votre texte..."></textarea>
+			<input id="markdown" type="texte" name="titre">
+			<label for="markdown">Markdown</label>
+			<textarea id="textemarkdown" name="textarea" rows="10" cols="30" placeholder="Ajouter votre texte..."></textarea>
 		</div>
 	</div>
+
+<!--textearea en HTML-->
+	<div id="html_content" class="container">
+		<div class="row">
+			<label for="html">HTML</label>
+			<textarea id="textehtml" name="textarea" rows="10" cols="30" placeholder="Convertion du texte..."></textarea>
+		</div>
+	</div>
+
+
 
 <!--bouton Enregistrer-->
 	<div class="container">
 		<div class="row">
 	 		<button id="envoyer"type="button" class="btn btn-lg btn-danger">Envoyer</button>
 		 </div>
-	</div>	 
+	</div>	
+
+<!--bouton Convertir
+	<div id="convertir" class="container">
+		<div class="row">
+	 		<button id="envoyer"type="button" class="btn btn-lg btn-danger">Convertir</button>
+		 </div>
+	</div>-->
+
 	
 	<div id="date"></div>
 <div id="afficherheure"></div>
 
+
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="node_modules/showdown/dist/showdown.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 </body>
 </html>

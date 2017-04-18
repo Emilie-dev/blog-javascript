@@ -1,7 +1,25 @@
+$(document).ready(function(){
+
 var contenu;
 
+var converter = new showdown.Converter();
 
+function convertion () {
+	
 
+	$("#textemarkdown").on('keyup', function() {
+		var text = $("#textemarkdown").val();
+		var html = converter.makeHtml(text);
+    	console.log(html);
+    	$("#textehtml").val(html);
+	
+});
+	
+}
+
+convertion();
+
+// j'affiche les articles sur la page publique
 
 function afficher(data) {
 	console.log(data);
@@ -11,6 +29,8 @@ function afficher(data) {
 
 
 
+
+// j'envoie au serveur
 
 $("#envoyer").click(function(){
 	contenu = {
@@ -25,7 +45,6 @@ $("#envoyer").click(function(){
 });
 
 
-// j'envoie au serveur
 
 function sauvegarde() {
 
@@ -67,3 +86,5 @@ $.ajax({
  var uneDate = new Date();
 
  $("#date").html(uneDate);
+
+});
