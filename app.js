@@ -53,7 +53,7 @@ $.ajax({
 
 	for (var i = 0; i < mesArticles.length; i++) {		
 		$("#public").append("<ul><li>" + mesArticles[i]["titre"] + "</li></ul>");	
-		$("#public").append("<ul><li>" + mesArticles[i]["texte"] + "</li></ul>");	
+		$("#public").append("<ul><li>" + converter.makeHtml(mesArticles[i]["texte"]) + "</li></ul<");	
 		console.log(mesArticles[i]);
 	}	
 })
