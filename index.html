@@ -2,76 +2,50 @@
 <html>
 <head>
 	<title>Admin-blog-javascript</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.css">
 	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
-<!--navbar-->
-	<nav class="navbar navbar-danger" role="navigation">
-  		<div class="container-fluid">
-    		<div class="navbar-header">
-      			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex2-collapse">
-        			<span class="sr-only">Toggle navigation</span>
-        			<span class="icon-bar"></span>
-        			<span class="icon-bar"></span>
-        			<span class="icon-bar"></span>
-      			</button>
-      				<a class="navbar-brand" href="#">Simplon</a>
-    		</div>
-    		<div class="collapse navbar-collapse navbar-ex2-collapse">
-      			<ul class="nav navbar-nav">
-        			<li class="active"><a href="#">Blog</a></li>
-        			<li class="active"><a href="#">Page Admin</a></li>
-        		</ul>
-  			</div>
+<!--Navbar-->
+	<div class="container">
+		<div class="row">
+  			<nav>
+    			<div class="nav-wrapper">
+      				<a class="brand-logo center">Blog-Javascript</a>
+      				<ul id="nav-mobile" class="left hide-on-med-and-down">
+        				<li><a href="admin.html">Blog</a></li>
+        				<li><a href="index.html">Admin</a></li>
+      				</ul>
+    			</div>
+  			</nav>
   		</div>
-	</nav>
-
-<!--h1-->
-	<div class="container">
-		<div class="row">
-			<h1 class="text-danger">Blog-Javascript</h1>
-		</div>
-	</div>
-
-
 <!--titre + textearea-->
-	<div class="container">
 		<div class="row">
+			<label for="title">Title</label>
+			<input id="title" type="text" name="title">
 			<label for="markdown">Markdown</label>
 			<textarea id="textemarkdown" name="textarea" rows="10" cols="30" placeholder="Ajouter votre texte..."></textarea>
 		</div>
-	</div>
-
 <!--textearea en HTML-->
-	<div id="html_content" class="container">
 		<div class="row">
 			<label for="html">HTML</label>
-			<textarea id="textehtml" name="textarea" rows="10" cols="30" placeholder="Convertion du texte..."></textarea>
+			<div id="textehtml"></div>
 		</div>
-	</div>
-
-
-
 <!--bouton Enregistrer-->
-	<div class="container">
 		<div class="row">
-	 		<button id="envoyer"type="button" class="btn btn-lg btn-danger">Envoyer</button>
+			<div class="col-sm-6">
+	 			<button id="envoyer"type="button" class="btn btn-md btn-danger">Envoyer</button>
+	 		</div>
 		 </div>
-	</div>	
-
-<!--bouton Convertir
-	<div id="convertir" class="container">
-		<div class="row">
-	 		<button id="envoyer"type="button" class="btn btn-lg btn-danger">Convertir</button>
-		 </div>
-	</div>-->
-
-	
-	<div id="date"></div>
-<div id="afficherheure"></div>
+		
+<!--afficher l'heure-->		
+		<div id="date"></div>
+		<div id="afficherheure"></div>
 
 
+	</div>
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.js"></script>
 	<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="node_modules/showdown/dist/showdown.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>

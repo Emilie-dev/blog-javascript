@@ -3,24 +3,18 @@
 <head>
 	<title>public-blog-javascript</title>
 	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.css">
 </head>
 <body>
-<!--dropdown button-->
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-4">
-	 			<button id="#admin" data-toggle="dropdown" class="btn btn-lg btn-danger dropdown-toggle" type="button"> <span class="caret"></span></button>
-    			<ul role="menu" class="dropdown-menu dropdown-menu-danger">
-        			<li><a href="#">Admin</a></li>       
-    			</ul>
-    		</div>
-    	</div>
-    </div>
-
+  <div class="container">
+<!-- Dropdown button -->
+    <a class='dropdown-button btn right' data-activates='dropdown1'>Admin</a>
+    <ul id='dropdown1' class='dropdown-content'>
+      <li><a href="index.html">Admin</a></li>
+    </ul>
 <!--side-bar-->
-<div class="container">
-	<div class="row">
-  		<div class="col-sm-2">
+	 <div class="row">
+  		<div class="col-sm-3">
     		<div class="sidebar-nav">
       			<div class="navbar navbar-default" role="navigation">
         			<div class="navbar-header">
@@ -44,30 +38,25 @@
 			            <li><a href="#">Menu Item 8</a></li>	
 			            <li><a href="#">Menu Item 9</a></li>
 			            <li><a href="#">Menu Item 10</a></li>
-			            <li><a href="#">Menu Item 11</a></li>
-			            <li><a href="#">Menu Item 12</a></li>
-			            <li><a href="#">Menu Item 13</a></li>
-			            <li><a href="#">Menu Item 14</a></li>
-			            <li><a href="#">Menu Item 15</a></li>
           			</ul>
         			</div>
       			</div>
     		</div>
   		</div>
-  	<div class="col-sm-9">
-    <textarea id="public" placeholder="Ajouter votre texte..."></textarea>
-  	</div>
-	</div>
+    <div class="col-sm-9">
+      <div id="public">
+        <ul>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+<!--affiche l'heure-->
+  <div id="date"></div> 
 </div>
-
-
-<div id="date"></div>
-
-
-
-  
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.js"></script>
   <script type="text/javascript" src="node_modules/showdown/dist/showdown.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 </body>

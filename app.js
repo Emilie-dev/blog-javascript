@@ -1,43 +1,31 @@
-$(document).ready(function(){
-
 var contenu;
-
 
 // je convertis mon article de Markdown à HTML côté admin
 var converter = new showdown.Converter();
 
 function convertion () {
-	
 
 	$("#textemarkdown").on('keyup', function() {
 		var text = $("#textemarkdown").val();
 		var html = converter.makeHtml(text);
     	console.log(html);
-    	$("#textehtml").val(html);
-
-	
-});
-	
+    	$("#textehtml").html(html);	
+});	
 }
 
 convertion();
 
-
 // j'envoie au serveur
-
 $("#envoyer").click(function(){
 	contenu = {
-		//"titre" : $("#titre").val(),
-		"texte" : $("textehtml").val(),
+		"titre" : $("#title").val(),
+		"texte" : $("#textemarkdown").val(),
 	};
-
 	 
 	sauvegarde();
-	//$("#titre").val("");
-	$("#textehtml").val("");
+	$("#title").val("");
+	$("#textemarkdown").val("");
 });
-
-
 
 function sauvegarde() {
 
@@ -47,14 +35,11 @@ function sauvegarde() {
 			task : "set",
 			key : "blogemilie",
 			value : JSON.stringify(contenu)
-		},
-   
+		},  
 	})
 }
 
-
-// je récupére depuis le serveur
-
+// je récupére la requête depuis le serveur
 $.ajax({
 	url :"http://192.168.1.50/json-db",
 	data : {
@@ -62,25 +47,21 @@ $.ajax({
 		key : "blogemilie"
 	}
 })
+// une fois .done fait, j'affiche les articles sur la page publique
 .done(function(data) {
-	alert("done");
-	afficher(data);
+	var mesArticles = JSON.parse(data);
+
+	for (var i = 0; i < mesArticles.length; i++) {		
+		$("#public").append("<ul><li>" + mesArticles[i]["titre"] + "</li></ul>");	
+		$("#public").append("<ul><li>" + mesArticles[i]["texte"] + "</li></ul>");	
+		console.log(mesArticles[i]);
+	}	
 })
 .fail(function() {
 	alert("error");
-})
-.always(function() {
-	alert("complete");
 });
 
 
-
-// j'affiche les articles sur la page publique
-
-function afficher(data) {
-	console.log(data);
-	$("#public").html(data);	
-}
 
 
 
@@ -89,8 +70,6 @@ function afficher(data) {
 
 
 // j'affiche date et heure
- var uneDate = new Date();
+var uneDate = new Date();
 
- $("#date").html(uneDate);
-
-});
+$("#date").html(uneDate);
