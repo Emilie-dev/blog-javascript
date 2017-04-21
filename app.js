@@ -1,4 +1,5 @@
 var contenu;
+var mesArticles;
 
 // je convertis mon article de Markdown à HTML côté admin
 var converter = new showdown.Converter();
@@ -47,22 +48,39 @@ $.ajax({
 		key : "blogemilie"
 	}
 })
-// une fois .done fait, j'affiche les articles sur la page publique
+// une fois .done fait, j'affiche les articles sur la page publique et admin
 .done(function(data) {
-	var mesArticles = JSON.parse(data);
+	mesArticles = JSON.parse(data);
 
 	for (var i = 0; i < mesArticles.length; i++) {		
 		$("#public").append("<ul><li>" + mesArticles[i]["titre"] + "</li></ul>");	
 		$("#public").append("<ul><li>" + converter.makeHtml(mesArticles[i]["texte"]) + "</li></ul<");	
 		console.log(mesArticles[i]);
-	}	
+		var id = mesArticles[i]._id;
+		var titre = mesArticles[i].titre;
+		console.log(id);
+		$("#articles").append('<li class="titles" data-id="'+ id +'">' + titre + '</li>');
+	}
 })
 .fail(function() {
 	alert("error");
 });
 
+$("#articles").delegate('.titles','click',function() {
+	console.log(this);
+	var id = $(this).data('id');
+	
+	console.log(id);
+	console.log(mesArticles);
 
-
+	for (var i = 0; i < mesArticles.length; i++) {
+		if (id === mesArticles[i]._id) {
+			var html = converter.makeHtml(mesArticles[i].texte);
+			console.log(mesArticles[i])
+			$("#articles").html(html);
+		}
+	}
+});
 
 
 

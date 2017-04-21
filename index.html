@@ -3,6 +3,7 @@
 <head>
 	<title>Admin-blog-javascript</title>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.css">
+	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
@@ -31,13 +32,23 @@
 			<label for="html">HTML</label>
 			<div id="textehtml"></div>
 		</div>
+<!--mes articles-->
+		<div id="articles">
+			<ul>
+				<li data_id="id">
+				
+				</li>
+			</ul>
+			
+		</div>
 <!--bouton Enregistrer-->
 		<div class="row">
 			<div class="col-sm-6">
-	 			<button id="envoyer"type="button" class="btn btn-md btn-danger">Envoyer</button>
+	 			<button id="envoyer" type="button" class="btn btn-md btn-success">Envoyer</button>
 	 		</div>
 		 </div>
-		
+<!--bouton/icon Supprimer-->
+		<button id="delete" type="button" class="btn btn-md btn-danger">Supprimer<i class="material-icons">delete</i></button>
 <!--afficher l'heure-->		
 		<div id="date"></div>
 		<div id="afficherheure"></div>
