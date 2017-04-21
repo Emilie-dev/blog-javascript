@@ -83,9 +83,85 @@ $("#articles").delegate('.titles','click',function() {
 });
 
 
+$.ajax({
+	url :"http://192.168.1.50/json-db",
+	data : {
+		task : "get",
+		key : "blogemilie"
+	}
+})
+.done(function(data) {
+	mesArticles = JSON.parse(data);
+
+	for (var i = 0; i < mesArticles.length; i++) {		
+		console.log(mesArticles[i]);
+		var id = mesArticles[i]._id;
+		var titre = mesArticles[i].titre;
+		console.log(titre);
+		$("#monTexte").append('<ul><li class="titles" data-id="'+ id +'">' + titre + '</li></ul> <button data-id="'+ id +'" class="supprimer" class="material-icons">delete</button>');
+	}
+})
+.fail(function() {
+	alert("error");
+});
+
+$("#monTexte").delegate('.titles','click',function() {
+	console.log(this);
+	var id = $(this).data('id');
+	
+	console.log(id);
+	console.log(mesArticles);
+
+	for (var i = 0; i < mesArticles.length; i++) {
+		if (id === mesArticles[i]._id) {
+			var html = mesArticles[i].texte;
+			console.log(mesArticles[i])
+			$("#Texte").html(html);
+		}
+	}
+});
+
+$("#monTexte").delegate('.supprimer','click',function() {
+	console.log(this);
+	var id = $(this).data('id');
+	console.log(id);
+
+	$.ajax({
+		url:'http://192.168.1.50/json-db',
+		data: {
+		task: 'delete',
+		_id: id
+		}
+	});
+	
+	$.ajax({
+		url :"http://192.168.1.50/json-db",
+		data : {
+		task : "get",
+		key : "blogemilie",
+		}
+	})
+	.done(function(data) {
+		$("#monTexte").html("");
+		mesArticles = JSON.parse(data);
+
+		for (var i = 0; i < mesArticles.length; i++) {		
+			console.log(mesArticles[i]);
+			var id = mesArticles[i]._id;
+			var titre = mesArticles[i].titre;
+			console.log(titre);
+			$("#monTexte").append('<ul><li class="titles" data-id="'+ id +'">' + titre + '</li></ul> <button data-id="'+ id +'" class="supprimer" class="material-icons">delete</button>');
+	}
+})
+	.fail(function() {
+	alert("error");
+});
+});
 
 
 
+
+$(".button-collapse").sideNav();
 
 // j'affiche date et heure
 var uneDate = new Date();

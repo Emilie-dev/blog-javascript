@@ -25,7 +25,7 @@
 			<label for="title">Title</label>
 			<input id="title" type="text" name="title">
 			<label for="markdown">Markdown</label>
-			<textarea id="textemarkdown" name="textarea" rows="10" cols="30" placeholder="Ajouter votre texte..."></textarea>
+			<textarea id="textemarkdown" class="form-control" name="textarea" rows="10" cols="40" placeholder="Ajouter votre texte..."></textarea>
 		</div>
 <!--textearea en HTML-->
 		<div class="row">
@@ -33,27 +33,18 @@
 			<div id="textehtml"></div>
 		</div>
 <!--mes articles-->
-		<div id="articles">
-			<ul>
-				<li data_id="id">
-				
-				</li>
-			</ul>
-			
+		<div id="monTexte">
 		</div>
+		<textarea class="form-control" rows="10" cols="50" id="Texte"></textarea>
 <!--bouton Enregistrer-->
 		<div class="row">
 			<div class="col-sm-6">
 	 			<button id="envoyer" type="button" class="btn btn-md btn-success">Envoyer</button>
 	 		</div>
 		 </div>
-<!--bouton/icon Supprimer-->
-		<button id="delete" type="button" class="btn btn-md btn-danger">Supprimer<i class="material-icons">delete</i></button>
 <!--afficher l'heure-->		
 		<div id="date"></div>
 		<div id="afficherheure"></div>
-
-
 	</div>
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.js"></script>
