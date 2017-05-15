@@ -1,0 +1,21 @@
+html
+	head
+		title admin
+		link(rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css")
+	body
+		h1 Côté admin du blog
+		a(href='public.pug') public
+		form(method='GET' action='/admin')
+		div.form-group
+			label(for='title') Titre de l'article
+			input#title(type='text' name='title')
+		div.form-group
+			label(for='markdown_text') Markdown
+			textarea#markdown_text(type='text' name='markdown_text')
+		div.form-group
+			label(for='html_text') HTML
+			textarea#html_text(type='text' name='html_text')
+		div.form-group
+			button#submit.btn.btn-success(type='button') Envoyer
+		script(type="text/javascript" src="node_modules/jquery/dist/jquery.min.js")
+		script(type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js")

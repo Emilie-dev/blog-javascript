@@ -1,0 +1,15 @@
+html
+	head
+		title public
+		link(rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css")
+	body
+		form(method='GET' action='/public')
+		nav.navbar.navbar-default
+			div.group-form
+				a(href='admin.pug') admin
+			div.group-form
+				a.brand-logo(href='#') Blog
+			div.group-form
+				a(href='public.pug') public
+		script(type="text/javascript" src="node_modules/jquery/dist/jquery.min.js")
+				
