@@ -4,10 +4,10 @@ html
 		link(rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css")
 	body
 		h1 Côté admin du blog
-		a(href='public.pug') public
+		a(href='public') public
 		form(method='GET' action='/admin')
 		div.form-group
-			label(for='title') Titre de l'article
+			label(for='title') Title
 			input#title(type='text' name='title')
 		div.form-group
 			label(for='markdown_text') Markdown

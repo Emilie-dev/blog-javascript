@@ -25,17 +25,37 @@ app.get('/admin', function (req, res) {
 });
 
 app.get('/public', function(req, res) {
-	res.render('public', {});
+//nodefs
+function addData(dir, req, res) {
+	var addArticles = {
+		"title" : data.title,
+		"article" : data.article,
+	}
+
+	nodefs.readfile(dir, function(err, data) {
+		obj = JSON.parse(data);
+		if(err) {
+			res.send('error');
+		}
+		obj.push(addArticles);
+		json = JSON.stringify(obj);
+		nodefs.writeFile('blog.json', json, function(err) {
+			if(err) {
+				res.send('error');
+			}else {
+				res.send('success');
+			}
+		});
+	});	
+}
+
+var myArticles = 
+
+	res.render('public', {
+		mesArticles:myArticles,
+	});
 });
 
 
-//Markdown
-var content;
-var myarticles;
 
-function markdownconvertion() {
-	var HTML_content = md(); 
-}
 
-markdownconvertion();
-		

@@ -6,10 +6,16 @@ html
 		form(method='GET' action='/public')
 		nav.navbar.navbar-default
 			div.group-form
-				a(href='admin.pug') admin
+				a(href='admin') admin
 			div.group-form
-				a.brand-logo(href='#') Blog
+				a.brand-logo(href='public') Blog côté public
 			div.group-form
-				a(href='public.pug') public
+				a(href='public') public
+			div.articles
+			each article in mesArticles
+				h1= article.titre
+				p= article.texte
+
+
 		script(type="text/javascript" src="node_modules/jquery/dist/jquery.min.js")
 				
