@@ -2,20 +2,20 @@ html
 	head
 		title admin
 		link(rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css")
-	body
-		h1 Côté admin du blog
+		link(rel="stylesheet" type="text/css" href="style.css")
+	body#admin
+		h1#h1 Côté admin du blog
 		a(href='public') public
-		form(method='GET' action='/admin')
+		form(method='GET' action='/addFichier')
 		div.form-group
 			label(for='title') Title
-			input#title(type='text' name='title')
+			input#title.form-control(type='text' name='title')
 		div.form-group
-			label(for='markdown_text') Markdown
-			textarea#markdown_text(type='text' name='markdown_text')
+			label(for='article') Article
+			textarea#article.form-control(type='text' name='article')
 		div.form-group
-			label(for='html_text') HTML
-			textarea#html_text(type='text' name='html_text')
-		div.form-group
-			button#submit.btn.btn-success(type='button') Envoyer
+			button#submit.btn.btn-info(type='button') Envoyer
+
 		script(type="text/javascript" src="node_modules/jquery/dist/jquery.min.js")
 		script(type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js")
+		script(type="text/javascript" src="admin.js")
