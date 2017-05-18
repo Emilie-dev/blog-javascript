@@ -2,15 +2,20 @@ html
 	head
 		title Mon Blog-pug
 		link(rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css")
-	body
-		form(method='GET' action='/blog')
+		link(rel="stylesheet" type="text/css" href="css/style.css")
+	body#publicBody
+		form(method='GET' action='/publishFile')
 		nav.navbar.navbar-default
-			div.group-form
-				a(href='admin') admin
-			div.group-form
-				a.brand-logo(href='public') Blog côté public
-			div.group-form
-				a(href='public') public
+			div.container-fluid
+				div.nav.navbar-nav
+					a#link1(href='/formulaireAjoutFichier') admin
+				div.nav.navbar-nav
+					a#link2(href='/publishFile') public
+				div.nav.navbar-header
+					a#logo.navbar-brand(href='/publishFile') Mon Blog-pug
+		div#text
 		
 		script(type="text/javascript" src="node_modules/jquery/dist/jquery.min.js")
+		script(type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js")
+		script(type="text/javascript" src="public.js")
 				

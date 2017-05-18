@@ -2,10 +2,15 @@ html
 	head
 		title admin
 		link(rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css")
-		link(rel="stylesheet" type="text/css" href="style.css")
+		link(rel="stylesheet" type="text/css" href="css/style.css")
 	body#admin
-		h1#h1 Côté admin du blog
-		a(href='public') public
+		nav.navbar.navbar-default
+			div.container-fluid
+				div.nav.navbar-nav
+					div.nav.navbar-nav
+						a#linkPublic(href='/publishFile') public
+					div.nav.navbar-header
+						a#logo.navbar-brand(href='/publishFile') Administration du Blog-pug
 		form(method='GET' action='/addFichier')
 		div.form-group
 			label(for='title') Title
@@ -14,7 +19,8 @@ html
 			label(for='article') Article
 			textarea#article.form-control(type='text' name='article')
 		div.form-group
-			button#submit.btn.btn-info(type='button') Envoyer
+			button#submit.btn.btn-primary(type='button') Envoyer
+		div#article
 
 		script(type="text/javascript" src="node_modules/jquery/dist/jquery.min.js")
 		script(type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js")

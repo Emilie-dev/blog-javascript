@@ -14,21 +14,13 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/'));
 
-
 //template
 app.set('views', './views');
 app.set('view engine', 'pug');
 
-
-
-
-
-
-app.get('/blog', function (req, res) {
+app.get('/publishFile', function (req, res) {
   res.render('public', {});
 });
-
-
 
 app.get('/formulaireAjoutFichier', function(req, res) {
 	res.render('admin', {});
@@ -59,7 +51,17 @@ app.post('/addFichier', function(req, res) {
 
 });
 
+app.get('/displayArticle', function(req, res){
 
+	nodefs.readFile('blog.json', function(err, data) {
+		if(err) {
+			res.send('error');
+		}
+		res.send(data);
+
+
+	});
+})
 
 	
 	
